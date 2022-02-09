@@ -74,13 +74,13 @@ class AlterCartUpToAmountPermissionPlugin extends AbstractPlugin implements Exec
      * @api
      *
      * @param array $configuration
-     * @param array|string|int|null $context Cent amount.
+     * @param int|null $centAmount
      *
      * @return bool
      */
-    public function can(array $configuration, $context = null): bool
+    public function can(array $configuration, $centAmount = null): bool
     {
-        if (!$context) {
+        if (!$centAmount) {
             return false;
         }
 
@@ -88,7 +88,7 @@ class AlterCartUpToAmountPermissionPlugin extends AbstractPlugin implements Exec
             return true;
         }
 
-        if (!is_array($context) && (int)$configuration[static::FIELD_CENT_AMOUNT] <= (int)$context) {
+        if ($configuration[static::FIELD_CENT_AMOUNT] <= $centAmount) {
             return false;
         }
 
