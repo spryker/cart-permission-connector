@@ -123,21 +123,11 @@ class AlterCartUpToAmountPermissionPlugin extends AbstractPlugin implements Exec
         return static::KEY;
     }
 
-    /**
-     * @param string $terminationEventName
-     *
-     * @return bool
-     */
     protected function isSubscribedToTerminationEventName(string $terminationEventName): bool
     {
         return in_array($terminationEventName, static::SUBSCRIBED_TERMINATION_NAMES);
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\CartChangeTransfer $cartChangeTransfer
-     *
-     * @return bool
-     */
     protected function hasRequiredFields(CartChangeTransfer $cartChangeTransfer): bool
     {
         $customerTransfer = $cartChangeTransfer->getQuote()->getCustomer();
@@ -155,12 +145,6 @@ class AlterCartUpToAmountPermissionPlugin extends AbstractPlugin implements Exec
         return true;
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\CartChangeTransfer $companyUserTransfer
-     * @param \Generated\Shared\Transfer\QuoteTransfer $quoteTransfer
-     *
-     * @return bool
-     */
     protected function isTerminatedByPermission(CartChangeTransfer $companyUserTransfer, QuoteTransfer $quoteTransfer): bool
     {
         $customerTransfer = $companyUserTransfer->getQuote()->getCustomer();

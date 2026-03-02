@@ -14,17 +14,11 @@ use Spryker\Zed\Kernel\Communication\AbstractCommunicationFactory;
 
 class CartPermissionConnectorCommunicationFactory extends AbstractCommunicationFactory
 {
-    /**
-     * @return \Spryker\Zed\CartPermissionConnector\Dependency\Facade\CartPermissionConnectorToPermissionFacadeInterface
-     */
     public function getPermissionFacade(): CartPermissionConnectorToPermissionFacadeInterface
     {
         return $this->getProvidedDependency(CartPermissionConnectorDependencyProvider::FACADE_PERMISSION);
     }
 
-    /**
-     * @return \Spryker\Zed\CartPermissionConnector\Dependency\Facade\CartPermissionConnectorToMessengerFacadeInterface
-     */
     public function getMessengerFacade(): CartPermissionConnectorToMessengerFacadeInterface
     {
         return $this->getProvidedDependency(CartPermissionConnectorDependencyProvider::FACADE_MESSENGER);
