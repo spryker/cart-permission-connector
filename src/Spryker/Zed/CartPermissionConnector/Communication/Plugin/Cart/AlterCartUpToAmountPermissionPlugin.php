@@ -23,6 +23,8 @@ use Spryker\Zed\Kernel\Communication\AbstractPlugin;
 class AlterCartUpToAmountPermissionPlugin extends AbstractPlugin implements ExecutablePermissionPluginInterface, CartTerminationPluginInterface
 {
     /**
+     * @api
+     *
      * @var string
      */
     public const KEY = 'AlterCartUpToAmountPermissionPlugin';
